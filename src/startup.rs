@@ -79,7 +79,7 @@ fn run(
             .app_data(email_client.clone())
             .app_data(base_url.clone())
     })
-    .listen(listener)?
-    .run();
+        .listen(listener)?
+        .run();
     Ok(server)
 }

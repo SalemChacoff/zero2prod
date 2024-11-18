@@ -82,12 +82,11 @@ mod tests {
         fn matches(&self, request: &Request) -> bool {
             let result: Result<serde_json::Value, _> = serde_json::from_slice(&request.body);
             if let Ok(body) = result {
-                body.as_object().and_then(|obj| obj.get("From")).is_some()
-                    && body.as_object().and_then(|obj| obj.get("From")).is_some()
-                    && body.as_object().and_then(|obj| obj.get("To")).is_some()
-                    && body.as_object().and_then(|obj| obj.get("Subject")).is_some()
-                    && body.as_object().and_then(|obj| obj.get("HtmlBody")).is_some()
-                    && body.as_object().and_then(|obj| obj.get("TextBody")).is_some()
+                body.get("From").is_some()
+                    && body.get("To").is_some()
+                    && body.get("Subject").is_some()
+                    && body.get("HtmlBody").is_some()
+                    && body.get("TextBody").is_some()
             } else {
                 false
             }
